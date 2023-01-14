@@ -1,3 +1,7 @@
+/* @import '../public/themes/prime-custom/primereact.css';
+@import '../public/themes/prime-custom/theme.scss';
+@import '../public/themes/prime-custom/primeicons.css'; */
+/* @import 'color-variable.scss'; */
 .App {
   text-align: center;
 }
@@ -32,11 +36,66 @@
   background-image: url('../public/Arctic.png');
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.arrow{
+  padding: 5px 10px 0 10px;
+  background-color: green;
+  width: max-content;
+  height: max-content;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  position: relative;
+  bottom: 8%;
 }
+
+/* default styles to carousel */
+.carousel-demo .product-item .product-item-content {
+  border: 1px solid var(--surface-d);
+  border-radius: 3px;
+  margin: .3rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.carousel-demo .product-item .product-image {
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Animations */
+@keyframes toUp {
+  from {bottom: -320px;}
+  to {bottom: 0px;}
+}
+.show {
+  animation: toUp 3s forwards;
+}
+
+@keyframes toDown {
+  from {bottom: 0px;}
+  to {bottom: -320px;}
+}
+.hide {
+  animation: toDown 3s forwards;
+}
+
+@keyframes toRight {
+  from {left: -224px;}
+  to {left: 0px;}
+}
+.line-left {
+  position: relative;
+  animation: toRight 2s ease-out;
+}
+
+@keyframes toLeft {
+  from {right: -224px;}
+  to {right: 0px;}
+}
+
+.line-right {
+  position: relative;
+  animation: toLeft 2s ease-out;
+}
+
+
+
