@@ -49,11 +49,16 @@
 
 /* default styles to carousel */
 .carousel-demo .product-item .product-item-content {
-  border: 1px solid var(--surface-d);
-  border-radius: 3px;
   margin: .3rem;
   text-align: center;
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  height: 250px;
 }
 
 .carousel-demo .product-item .product-image {

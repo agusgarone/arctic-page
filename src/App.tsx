@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
-import { BsFillBrightnessHighFill, BsClock, BsArrowUp, BsArrowDown } from "react-icons/bs";
+import { BsFillBrightnessHighFill, BsClock, BsArrowUp } from "react-icons/bs";
 import moment from "moment";
 import { Carousel } from "primereact/carousel";
 import { Button } from "primereact/button";
@@ -10,6 +10,8 @@ import { Button } from "primereact/button";
 import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
+import { INews } from "./models/news.model";
+import logo from '/images/image1.png';
 
 const App = () => {
   const [time, setTime] = useState<any>();
@@ -50,93 +52,64 @@ const App = () => {
     },
   ];
 
-  const data = [
+  const data: INews[] = [
     {
       id: "1000",
       code: "f230fh0g3",
-      name: "Bamboo Watch",
-      description: "Product Description",
-      image: "bamboo-watch.jpg",
-      price: 65,
-      category: "Accessories",
-      quantity: 24,
-      inventoryStatus: "INSTOCK",
+      name: "¿La guerra de Ucrania frenará el avance de Rusia en el Ártico?",
+      image: "image1.png",
+      category: "POLITICA",
+      date: "28-03-2022",
     },
     {
       id: "1001",
       code: "nvklal433",
-      name: "Black Watch",
-      description: "Product Description",
-      image: "black-watch.jpg",
-      price: 72,
-      category: "Accessories",
-      quantity: 61,
-      inventoryStatus: "INSTOCK",
+      name: "Posible año récord para el zorro ártico en los países nórdicos con 762 cachorros contados en 2022",
+      image: "image2.jpg",
+      category: "ANIMAL",
+      date: "13-06-2022",
     },
     {
       id: "1002",
       code: "zz21cz3c1",
-      name: "Blue Band",
-      description: "Product Description",
-      image: "blue-band.jpg",
-      price: 79,
-      category: "Fitness",
-      quantity: 2,
-      inventoryStatus: "LOWSTOCK",
+      name: "Arctic Fresh Projects lanza vuelos los sábados que unen Iqaluit e Igloolik",
+      image: "image4.jpeg",
+      category: "NOVEDAD",
+      date: "02-01-2023",
     },
     {
       id: "1003",
       code: "244wgerg2",
-      name: "Blue T-Shirt",
-      description: "Product Description",
-      image: "blue-t-shirt.jpg",
-      price: 29,
-      category: "Clothing",
-      quantity: 25,
-      inventoryStatus: "INSTOCK",
+      name: "Deja de lado a los osos polares, hay otro gran depredador a lo largo de la costa ártica",
+      image: "image3.jpg",
+      category: "ANIMAL",
+      date: "12-11-2022",
     },
     {
       id: "1004",
       code: "h456wer53",
-      name: "Bracelet",
-      description: "Product Description",
-      image: "bracelet.jpg",
-      price: 15,
-      category: "Accessories",
-      quantity: 73,
-      inventoryStatus: "INSTOCK",
+      name: "El depósito de tierras raras más grande de Europa encontrado en el Ártico sueco",
+      image: "image5.png",
+      category: "NOVEDAD",
+      date: "21-12-2022",
     },
   ];
 
-  const productTemplate = (product: any) => {
+  const productTemplate = (product: INews) => {
     return (
       <div className="product-item">
         <div className="product-item-content">
           <div className="mb-3">
-            {/* <img src={`images/product/${product.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={product.name} className="product-image" /> */}
+            <img src={`/images/${product.image}`} alt={product.name} className="w-full h-40 bg-cover object-cover rounded-t-2xl" />
           </div>
           <div>
-            <h4 className="mb-1">{product.name}</h4>
-            <h6 className="mt-0 mb-3">${product.price}</h6>
+            <p className="mb-1 text-left mx-2">{product.name}</p>
+            {/* <h6 className="mt-0 mb-3">${product.date}</h6>
             <span
-              className={`product-badge status-${product.inventoryStatus.toLowerCase()}`}
+              className={`product-badge status-${product.category}`}
             >
-              {product.inventoryStatus}
-            </span>
-            <div className="car-buttons mt-5">
-              <Button
-                icon="pi pi-search"
-                className="p-button p-button-rounded mr-2"
-              />
-              <Button
-                icon="pi pi-star-fill"
-                className="p-button-success p-button-rounded mr-2"
-              />
-              <Button
-                icon="pi pi-cog"
-                className="p-button-help p-button-rounded"
-              />
-            </div>
+              {product.category}
+            </span> */}
           </div>
         </div>
       </div>
@@ -214,7 +187,7 @@ const App = () => {
           <div className="card">
             <Carousel
               value={data}
-              numVisible={3}
+              numVisible={4}
               numScroll={1}
               responsiveOptions={responsiveOptions}
               className="custom-carousel"
