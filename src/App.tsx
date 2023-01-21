@@ -11,7 +11,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css"; //theme
 import "primereact/resources/primereact.min.css"; //core css
 import "primeicons/primeicons.css";
 import { INews } from "./models/news.model";
-import logo from '/images/image1.png';
+import logo from "/images/image1.png";
 
 const App = () => {
   const [time, setTime] = useState<any>();
@@ -100,7 +100,11 @@ const App = () => {
       <div className="product-item">
         <div className="product-item-content">
           <div className="mb-3">
-            <img src={`/images/${product.image}`} alt={product.name} className="w-full h-40 bg-cover object-cover rounded-t-2xl" />
+            <img
+              src={`/images/${product.image}`}
+              alt={product.name}
+              className="w-full h-40 bg-cover object-cover rounded-t-2xl"
+            />
           </div>
           <div>
             <p className="mb-1 text-left mx-2">{product.name}</p>
@@ -118,28 +122,28 @@ const App = () => {
 
   const changeClassOfElement = () => {
     const element = document.querySelector(".carousel");
-    // console.log("element", element);
-    if(element?.className?.includes('show')){
-      console.log("tiene show");
-      element?.classList?.remove('show');
-      element?.classList?.add('hide');
-      // setToggleIcon(true);
+    const btnArrow = document.querySelector(".toggle-btn");
+    if (element?.className?.includes("show")) {
+      element?.classList?.remove("show");
+      element?.classList?.add("hide");
+      btnArrow?.classList?.add("active");
       return;
     }
-    if(element?.className?.includes('hide')){
-      console.log("tiene hide");
-      element?.classList?.remove('hide');
-      element?.classList?.add('show');
-      // setToggleIcon(false);
+    if (element?.className?.includes("hide")) {
+      element?.classList?.remove("hide");
+      element?.classList?.add("show");
+      btnArrow?.classList?.remove("active");
       return;
     }
-    if(!element?.className?.includes('hide') && !element?.className?.includes('show')){
-      console.log("no tiene nada");
-      element?.classList?.add('show');
-      // setToggleIcon(false);
+    if (
+      !element?.className?.includes("hide") &&
+      !element?.className?.includes("show")
+    ) {
+      element?.classList?.add("show");
+      btnArrow?.classList?.remove("active");
       return;
     }
-  }
+  };
 
   return (
     <div className="h-screen background-image bg-cover">
@@ -179,10 +183,14 @@ const App = () => {
           <hr className="w-full h-0.5 bg-white line-right" />
         </div>
       </section>
-      <section className="carousel w-screen h-1/2 absolute -bottom-80 left-0 bg-slate-600 animation flex justify-center z-10">
-        <div className="arrow" onClick={() => changeClassOfElement()}>
-          <BsArrowUp className="text-white text-lg" />
-        </div>
+      <section className="carousel w-screen h-3/5 absolute posicion-inicial left-0 bg-slate-600 animation flex flex-col items-center z-10">
+        <a
+          className="toggle-btn active"
+          href="#"
+          onClick={() => changeClassOfElement()}
+        >
+          <span className="arrow"></span>
+        </a>
         <div className="carousel-demo">
           <div className="card">
             <Carousel
@@ -195,7 +203,9 @@ const App = () => {
               autoplayInterval={3000}
               itemTemplate={productTemplate}
               header={
-                <h5>Mas informacion sobre el artico: </h5>
+                <h3 className="font-montserrat text-white mx-2">
+                  Mas informacion sobre el artico:{" "}
+                </h3>
               }
             />
           </div>

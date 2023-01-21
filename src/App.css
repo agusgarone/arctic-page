@@ -36,15 +36,8 @@
   background-image: url('../public/Arctic.png');
 }
 
-.arrow{
-  padding: 5px 10px 0 10px;
-  background-color: green;
-  width: max-content;
-  height: max-content;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  position: relative;
-  bottom: 8%;
+body {
+  overflow: hidden !important;
 }
 
 /* default styles to carousel */
@@ -66,9 +59,13 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
+.posicion-inicial{
+  bottom: -60%;
+}
+
 /* Animations */
 @keyframes toUp {
-  from {bottom: -320px;}
+  from {bottom: -60%;}
   to {bottom: 0px;}
 }
 .show {
@@ -77,7 +74,7 @@
 
 @keyframes toDown {
   from {bottom: 0px;}
-  to {bottom: -320px;}
+  to {bottom: -60%;}
 }
 .hide {
   animation: toDown 3s forwards;
@@ -100,6 +97,71 @@
 .line-right {
   position: relative;
   animation: toLeft 2s ease-out;
+}
+
+.btn-arrow{
+  padding: 5px 10px 0 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+  width: max-content;
+  height: max-content;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  position: relative;
+  bottom: 6%;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  padding: 5px 10px 0 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity));
+  width: 37px;
+  height: 22px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  position: relative;
+  bottom: 5.5%;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 13px;
+}
+
+.arrow::before,
+.arrow::after {
+  position: relative;
+  content: '';
+  display: block;
+  width: 10px;
+  height: 1px;
+  background: white;
+  transition: 0.3s ease-in-out;
+}
+
+.arrow::before {
+  transform: rotate(45deg);
+}
+
+.arrow::after {
+  left: 6px;
+  top: -1px;
+  transform: rotate(-45deg);
+}
+
+
+/* .toggle-btn {
+  background: #13749a;
+} */
+
+.toggle-btn.active .arrow::before {
+  transform: rotate(-45deg);
+}
+
+.toggle-btn.active .arrow::after {
+  transform: rotate(45deg);
 }
 
 
