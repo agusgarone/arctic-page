@@ -64,7 +64,7 @@ const App = () => {
     {
       id: "1001",
       code: "nvklal433",
-      name: "Posible año récord para el zorro ártico en los países nórdicos con 762 cachorros contados en 2022",
+      name: "Posible año récord para el zorro ártico en los países nórdicos con 762 cachorros contados en 2022.",
       image: "image2.jpg",
       category: "ANIMAL",
       date: "13-06-2022",
@@ -72,7 +72,7 @@ const App = () => {
     {
       id: "1002",
       code: "zz21cz3c1",
-      name: "Arctic Fresh Projects lanza vuelos los sábados que unen Iqaluit e Igloolik",
+      name: "Arctic Fresh Projects lanza vuelos los sábados que unen Iqaluit e Igloolik.",
       image: "image4.jpeg",
       category: "NOVEDAD",
       date: "02-01-2023",
@@ -80,7 +80,7 @@ const App = () => {
     {
       id: "1003",
       code: "244wgerg2",
-      name: "Deja de lado a los osos polares, hay otro gran depredador a lo largo de la costa ártica",
+      name: "Deja de lado a los osos polares, hay otro gran depredador a lo largo de la costa ártica.",
       image: "image3.jpg",
       category: "ANIMAL",
       date: "12-11-2022",
@@ -88,7 +88,7 @@ const App = () => {
     {
       id: "1004",
       code: "h456wer53",
-      name: "El depósito de tierras raras más grande de Europa encontrado en el Ártico sueco",
+      name: "El depósito de tierras raras más grande de Europa encontrado en el Ártico sueco.",
       image: "image5.png",
       category: "NOVEDAD",
       date: "21-12-2022",
@@ -107,13 +107,17 @@ const App = () => {
             />
           </div>
           <div>
-            <p className="mb-1 text-left mx-2">{product.name}</p>
-            {/* <h6 className="mt-0 mb-3">${product.date}</h6>
-            <span
-              className={`product-badge status-${product.category}`}
+            <p className="mb-1 text-left mx-2 ellipsis-text font-montserrat">
+              {product.name}
+            </p>
+          </div>
+          <div className="btn-ver-mas mt-3">
+            <a
+              className="bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md font-montserrat"
+              href="#"
             >
-              {product.category}
-            </span> */}
+              ver mas
+            </a>
           </div>
         </div>
       </div>
@@ -147,7 +151,7 @@ const App = () => {
 
   return (
     <div className="h-screen background-image bg-cover">
-      <nav className="py-10 mx-20 mb-12 flex justify-between">
+      <nav className="xl:py-10 xl:mx-20 xl:mb-12 flex justify-between xs:py-0 xs:mx-0">
         <h1 className="text-xl font-montserrat">Arctic</h1>
         <ul className="flex items-center font-montserrat">
           <li>nose</li>
@@ -195,7 +199,7 @@ const App = () => {
           <div className="card">
             <Carousel
               value={data}
-              numVisible={4}
+              numVisible={3}
               numScroll={1}
               responsiveOptions={responsiveOptions}
               className="custom-carousel"
